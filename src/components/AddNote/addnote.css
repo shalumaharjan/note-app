@@ -1,0 +1,8 @@
+.add-note {
+  background-color: var(--color-add);
+}
+
+textarea {
+  background-color: var(--color-add);
+  resize: none;
+}

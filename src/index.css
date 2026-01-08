@@ -1,0 +1,56 @@
+:root {
+  --color-bg: #f7ecb4ee;
+  --color-note: #f3e962;
+  --color-add: #67d7cc;
+  --color-btn: #000;
+  --color-btn-variant: #ededed;
+  --color-light: rgb(111, 109, 109);
+  --color-text: #000;
+
+  --transition: all 400ms ease;
+
+  --container-width-lg: 85%;
+  --container-width-md: 90%;
+  --container-width-ms: 80%;
+}
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  text-decoration: none;
+  outline: none;
+}
+
+body {
+  /*  var:access root element */
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.container {
+  padding: 0 15px;
+  margin: 0 auto;
+  min-height: 100vh;
+  width: var(--container-width-lg);
+}
+
+.btn {
+  border: none;
+  padding: 5px 10px;
+  background-color: var(--color-btn);
+  border-radius: 15px;
+  color: var(--color-btn-variant);
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: var(--color-btn-variant);
+  color: var(--color-btn);
+}
+
+.notes-list {
+  display: grid;
+  gap: 16px;
+  margin: 0 auto;
+  /* shows in column: min width 300px, max width 1full row-fr */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
