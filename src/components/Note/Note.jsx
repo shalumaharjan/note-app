@@ -1,6 +1,6 @@
 import React from "react";
 import "./note.css";
-import { TiDelete } from "react-icons/ti";
+import { RiDeleteBin5Fill } from "react-icons/ri";
 
 export const Note = ({ note, handleDelNote }) => {
   return (
@@ -8,10 +8,7 @@ export const Note = ({ note, handleDelNote }) => {
       <p>{note.text}</p>
       <div className="note-footer">
         {note.date}
-        <button className="btn" onClick={() => handleDelNote(note.id)}>
-          Delete
-          <TiDelete />
-        </button>
+        <RiDeleteBin5Fill onClick={() => handleDelNote(note.id)} />
       </div>
     </div>
   );
