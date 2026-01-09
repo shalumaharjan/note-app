@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { nanoid } from "nanoid";
 import AddNote from "./components/AddNote/AddNote";
 import { Note } from "./components/Note/Note";
+import Search from "./components/Search/search";
+import Title from "./components/Title/Title";
 
 const savedNotes = () => {
   const saved = localStorage.getItem("data"); //get item that is saved in local storage
@@ -13,6 +15,7 @@ const savedNotes = () => {
 
 function App() {
   const [notes, setNotes] = useState(savedNotes());
+  const [search, setSearch] = useState("");
 
   const handleAdd = (inputText) => {
     if (!inputText) return;
@@ -30,6 +33,14 @@ function App() {
     setNotes(newTodoList);
   };
 
+  const filteredNotes = notes.filter((note) =>
+    note.text.toLowerCase().includes(search.toLocaleLowerCase())
+  ); //while searching: sees includes or not
+
+  const handleSearch = (searchTerm) => {
+    setSearch(searchTerm);
+  };
+
   //storing in local storage
   useEffect(() => {
     localStorage.setItem("data", JSON.stringify(notes)); //stringify: object to JSON
@@ -38,10 +49,11 @@ function App() {
   return (
     <>
       <div className="container">
-        <h1>NOTES</h1>
+        <Title />
+        <Search toSearch={handleSearch} />
         <div className="notes-list">
           <AddNote handleAddNote={handleAdd} />
-          {notes.map((noteItem) => (
+          {filteredNotes.map((noteItem) => (
             <Note
               key={noteItem.id}
               note={noteItem}
