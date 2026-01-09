@@ -2,5 +2,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
+  margin: 20px;
+  padding: 10px;
+  border: 2px dashed var(--color-add);
+  border-radius: 10px;
+  background-color: var(--color-btn-variant);
 }

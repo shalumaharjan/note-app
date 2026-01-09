@@ -5,4 +5,6 @@
 textarea {
   background-color: var(--color-add);
   resize: none;
+  /* To expand the size as input increases */
+  /* field-sizing: content; */
 }
